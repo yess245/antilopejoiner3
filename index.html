@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Joining Roblox</title>
-	<script>
-		window.onload = function() {
-			const params = new URLSearchParams(window.location.search);
-			const placeId = params.get('placeId');
-			const gameInstanceId = params.get('gameInstanceId');
-
-			if (placeId && gameInstanceId) {
-				// Corrected placeId spelling
-				window.location.href = `roblox://placeId=${placeId}&gameInstanceId=${gameInstanceId}`;
-			} else {
-				document.body.textContent = "Error: Missing Place ID or Game Instance ID.";
-			}
-		};
-	</script>
-</head>
-<body></body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roblox Redirect</title>
+    <script>
+      window.onload = () => {
+        const query = window.location.search.substring(1);
+        if (query.startsWith("roblox://")) {
+          // Redirect directly
+          window.location.href = query;
+        } else {
+          document.body.innerHTML = `
+            <h2>Invalid Roblox link</h2>
+            <p>Expected something like <code>?roblox://placeId=123&gameInstanceId=abc</code></p>
+          `;
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h2>Redirecting to Roblox...</h2>
+  </body>
 </html>
