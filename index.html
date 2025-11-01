@@ -4,18 +4,15 @@
 	<meta charset="utf-8">
 	<title>Joining Roblox</title>
 	<script>
-		window.onload = function()
-		{
+		window.onload = function() {
 			const params = new URLSearchParams(window.location.search);
 			const placeId = params.get('placeId');
 			const gameInstanceId = params.get('gameInstanceId');
 
-			if (placeId && gameInstanceId)
-			{
-				window.location.href = `roblox://placeID=${placeId}&gameInstanceId=${gameInstanceId}`;
-			}
-			else
-			{
+			if (placeId && gameInstanceId) {
+				// Corrected placeId spelling
+				window.location.href = `roblox://placeId=${placeId}&gameInstanceId=${gameInstanceId}`;
+			} else {
 				document.body.textContent = "Error: Missing Place ID or Game Instance ID.";
 			}
 		};
